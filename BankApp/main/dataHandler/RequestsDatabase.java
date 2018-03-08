@@ -6,29 +6,43 @@ import java.util.ArrayList;
 import request.Request;
 
 public class RequestsDatabase implements Serializable{
-
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = 71804874035459512L;
-    private ArrayList<Request> info;
+	private static final long serialVersionUID = -3305766576290465519L;
+	private ArrayList<Request> info;
     
     public RequestsDatabase(ArrayList<Request> info){
     	this.info = info;
     }
     
-    public Request getEntityInfo(int BankID){
-    	Request AssociateInfo = null;
+    public Request getRequestInfo(int BankID){
+    	Request RequestInfo = null;
     	for(Request CurrentInfo : this.info){
     		if(BankID == CurrentInfo.getAssociatedBankID()){
-    			AssociateInfo = CurrentInfo;
+    			RequestInfo = CurrentInfo;
     			break;
     		}
     	}
-    	return AssociateInfo;
+    	return RequestInfo;
     }
     
-    public void addRequest(Request AssociateInfo){
-    	this.info.add(AssociateInfo);
+    
+    public Request getNextRequest(){
+    	for(Request request : info){
+    		if(request.getRequestStatus() == Request.RequestStatus.ONHOLD){
+    			return request;
+    		}
+    	}
+    	return null;
     }
+    
+    public void addRequest(Request RequestInfo){
+    	this.info.add(RequestInfo);
+    }
+    
+    public ArrayList<Request> getRequests(){
+    	return this.info;
+    }
+    
 }

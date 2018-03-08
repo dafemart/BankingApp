@@ -3,7 +3,7 @@ package account;
 import java.io.Serializable;
 
 public interface Account extends Serializable{
-     void subtractBalance(int balance);
+     boolean subtractBalance(int balance);
      void addBalance(int balance);
      void setBalance(int balance);
      int getBalance();

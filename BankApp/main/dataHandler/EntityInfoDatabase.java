@@ -26,6 +26,21 @@ public class EntityInfoDatabase<T> implements Serializable{
     	return AssociateInfo;
     }
     
+    public T getEntityInfo(String username){
+    	T AssociateInfo = null;
+    	for(T CurrentInfo : this.info){
+    		if(username.compareTo(((EntityInfo) CurrentInfo).getUsername()) == 0){
+    			AssociateInfo = CurrentInfo;
+    			break;
+    		}
+    	}
+    	return AssociateInfo;
+    }
+    
+    public ArrayList<T> getFullEntityInfo(){
+    	return info;
+    }
+    
     public void addEntityInfo(T AssociateInfo){
     	this.info.add(AssociateInfo);
     }

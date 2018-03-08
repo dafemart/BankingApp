@@ -13,26 +13,31 @@ public class NormalAccount implements Account {
 	private int OwnersBankID;
 	
     public NormalAccount(int AccNum, int balance, int BankID){
-		
+	   AccountNumber = AccNum;	
+	   CurrentBalance = balance;
+	   OwnersBankID = BankID;
 	}
 
-	public void subtractBalance(int balance) {
-		// TODO Auto-generated method stub
-		
+	public boolean subtractBalance(int Amount) {
+		if(Amount <= this.CurrentBalance){
+			 this.CurrentBalance -= Amount;
+			  return true;
+			}
+			else{
+				return false;
+			}
 	}
 
-	public void addBalance(int balance) {
-		// TODO Auto-generated method stub
-		
+	public void addBalance(int Amount) {
+		CurrentBalance = CurrentBalance + Amount;
 	}
 	
 	public void setBalance(int balance){
-		
-		// TODO Auto-generated method stub;
+		CurrentBalance = balance;
 	}
 
 	public void setAccountNumber(int AccNumber) {
-		// TODO Auto-generated method stub
+		AccountNumber = AccNumber;
 		
 	}
 
@@ -42,7 +47,14 @@ public class NormalAccount implements Account {
 	}
 
 	public int getAccountNumber() {
-		// TODO Auto-generated method stub
-		return 0;
+		return AccountNumber;
+	}
+	
+	public void setBankID(int id){
+		this.OwnersBankID = id;
+	}
+	
+	public int getOwnerBankID(){
+		return OwnersBankID;
 	}
 }

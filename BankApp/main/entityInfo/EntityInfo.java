@@ -1,13 +1,13 @@
-package entityInfo;
+  package entityInfo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
-public abstract class EntityInfo implements Serializable {
+
+public abstract class EntityInfo implements Serializable{
    /**
 	 * 
 	 */
-   private static final long serialVersionUID = 6684473475806352420L;
+   private static final long serialVersionUID = -2076714910968269148L;
    protected String name;
    protected String username;
    protected String password;
@@ -48,5 +48,5 @@ public abstract class EntityInfo implements Serializable {
 	  this.password = password;  
    } 
    
-   public abstract void setBankID();
+   public abstract void setBankID(int BankID);
 }
